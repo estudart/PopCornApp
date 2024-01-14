@@ -50,7 +50,7 @@ export default function StarRating({
   className = "",
   messages = [],
   defaultRating = 0,
-  onSetMovieRating,
+  onSetRating,
 }) {
   const textStyle = {
     lineHeight: "1",
@@ -64,7 +64,7 @@ export default function StarRating({
 
   function handleRating(rating) {
     setRating(rating);
-    onSetMovieRating(rating);
+    onSetRating(rating);
   }
 
   return (
