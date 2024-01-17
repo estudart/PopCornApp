@@ -298,6 +298,22 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     [selectedId]
   );
 
+  useEffect(
+    function () {
+      function callback(e) {
+        console.log(e.key);
+        if (e.key === "w") {
+          onCloseMovie();
+        }
+      }
+      document.addEventListener("keypress", callback);
+      return function () {
+        document.removeEventListener("keypress", callback);
+      };
+    },
+    [onCloseMovie]
+  );
+
   useEffect(() => {
     function checkMovieList() {
       setCheckWatched(false);
